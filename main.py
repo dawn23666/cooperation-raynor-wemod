@@ -1,9 +1,10 @@
 import pyautogui,keyboard,time,os
-
 def ctrl_z():
+    pyautogui.PAUSE = 0.01
     pyautogui.keyDown('ctrl')
     pyautogui.keyDown('z')
 def flow():
+    pyautogui.PAUSE = 0.01
     ctrl_z()
     pyautogui.click(232,967)
     ctrl_z()
@@ -18,25 +19,30 @@ def initialize():
     pyautogui.keyUp('ctrl')
     pyautogui.keyUp('z')
 def open():
-    pyautogui.click(225,957)
-    pyautogui.click(2075,676)
-    time.sleep(70)
+    pyautogui.click(250,950)
+    pyautogui.hotkey('alt','tab')
+    pyautogui.click(250,950)
+    pyautogui.hotkey('alt','tab')
 def close():
-    time.sleep(20)
+    pyautogui.PAUSE = 1
+    time.sleep(25)
     pyautogui.click(964,674)
-    pyautogui.click(2609,478)
-    time.sleep(10)
-    pyautogui.click(2609,478)
-    pyautogui.keyDown('esc')
-    pyautogui.keyUp('esc')
+    pyautogui.hotkey('alt', 'tab')
     pyautogui.click(964,674)
-    pyautogui.keyDown('esc')
-    pyautogui.keyUp('esc')
-    time.sleep(2)
+    time.sleep(15)
+    pyautogui.hotkey('esc')
+    pyautogui.hotkey('alt', 'tab')
+    pyautogui.hotkey('esc')
+    pyautogui.click(346,860)
+    pyautogui.hotkey('alt', 'tab')
+    pyautogui.click(346,860)
+    pyautogui.hotkey('alt', 'tab')
 a = 1
-pyautogui.PAUSE = 0.01
+pyautogui.PAUSE = 1
+time.sleep(3)
 while a == 1:
-    keyboard.wait(']')
+    open()
+    time.sleep(90)
     flow()
     flow()
     flow()
@@ -68,3 +74,4 @@ while a == 1:
     flow()
     flow()
     initialize()
+    close()
